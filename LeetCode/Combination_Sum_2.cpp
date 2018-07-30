@@ -1,8 +1,8 @@
-// Question : https://leetcode.com/problems/combination-sum/description/
+// Question : https://leetcode.com/problems/combination-sum-ii/description/
 
 class Solution {
 public:
-    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+    vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
         sort(candidates.begin(), candidates.end());
         set<vector<int>> solutions;
         vector<int> temp;
@@ -21,7 +21,7 @@ public:
         
         for (int i = start; i < candidates.size(); i++) {
             temp.push_back(candidates[i]);
-            backtrack(candidates, solutions, temp, remaining - candidates[i], i);
+            backtrack(candidates, solutions, temp, remaining - candidates[i], i + 1);
             temp.pop_back();
         }
     }
